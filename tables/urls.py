@@ -1,0 +1,10 @@
+from django.urls import path
+
+from rest_framework.routers import DefaultRouter
+
+from .views import TableViewSet
+
+router = DefaultRouter()
+router.register('tables', TableViewSet, basename='tables')
+
+urlpatterns = router.urls
