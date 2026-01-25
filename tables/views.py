@@ -4,8 +4,6 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 from rest_framework.viewsets import ModelViewSet
 
-from .permissions import IsStaff
-
 from .selectors import get_tables
 from .serializers import TableSerializer
 

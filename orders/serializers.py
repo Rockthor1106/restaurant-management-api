@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from .models import Order
 
+from .services import create_order
+
 class OrderCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -9,6 +11,11 @@ class OrderCreateSerializer(serializers.ModelSerializer):
         fields = [
             'table'
         ]
+
+    def create(self, validated_data):
+        user = self.context['request'].user
+        table = validated_data['table']
+        return create_order(table, user)
 
 class OrderDetailSerializer(serializers.ModelSerializer):
 
