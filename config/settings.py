@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'tables',
     'orders',
     'products',
+    'order_items',
     'django_extensions'
 ]
 
