@@ -28,6 +28,12 @@ class OrderItemCreateSerializer(serializers.ModelSerializer):
         quantity = validated_data['quantity']
         
         return create_order_item(order, product, quantity)
+
+    def validate_quantity(self, quantity):
+            if quantity <= 0:
+                raise ValidationError("Quantity must be at least 1")
+            
+            return quantity
             
 
 class OrderItemDetailSerializer(serializers.ModelSerializer):
@@ -61,7 +67,7 @@ class OrderItemUpdateSerializer(serializers.ModelSerializer):
         ]
 
     def validate_quantity(self, quantity):
-            if quantity < 0:
+            if quantity <= 0:
                 raise ValidationError("Quantity must be at least 1")
             
             return quantity

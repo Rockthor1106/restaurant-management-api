@@ -23,14 +23,6 @@ class OrderItem(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=['order', 'product'],
-                name='unique_product_per_order'
-            )
-        ]
-
     @property
     def subtotal(self):
         return self.quantity * self.unit_price
