@@ -32,7 +32,7 @@ class OrdersTest(APITestCase):
         )
         
         table_1 = Table.objects.create(number=1, capacity=4)
-        table_2 = Table.objects.create(number=1, capacity=4, is_active=False)
+        table_2 = Table.objects.create(number=2, capacity=4, is_active=False)
 
         self.tables = [
             table_1,
